@@ -1,0 +1,41 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    int a=0;
+    cin>>a;
+    while(a--)
+    {
+        int n;
+        cin>>n;int sum=0;
+        int *arr=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            cin>>arr[i];
+            sum+=arr[i];
+        }
+        int tmp=0;int sl=0;
+        if(sum-arr[0]==0)
+        {
+            cout<<"YES\n";
+        }
+        else if(n<3)
+            {
+            cout<<"NO\n";
+        }
+        else{
+        for(int i=1;i<n;i++)
+        {
+            sl+=arr[i-1];
+            if(sl==(sum-arr[i]-sl))
+            {
+                tmp=1;
+                break;
+            }
+        }
+        if(tmp==0)
+            cout<<"NO\n";
+        else
+            cout<<"YES\n";}
+    }
+}
